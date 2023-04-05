@@ -9,9 +9,13 @@ module.exports = function (root) {
       }
       return str;
     },
+
+
     // Hire the given person as an employee in the position that has that title
     // Return the newly filled position or undefined if no position has that title
     hire: function (person, title) {
+      //My line of comment here.
+
       // your code here
     },
 
