@@ -20,8 +20,25 @@ public abstract class Organization {
 	 * @return the newly filled position or empty if no position has that title
 	 */
 	public Optional<Position> hire(Name person, String title) {
-		//your code here
-		return Optional.empty();
+		Random rand = new Random();
+        int random_int = rand.nextInt(1000);
+        
+        Employee employee = new Employee(random_int, person);
+		
+        Optional<Position> position = Optional.of(new Position(title));
+          
+        if(!position.get().getDirectReports().contains(title)) {
+        	
+        	if(!position.get().isFilled()) {
+        		
+        		Position job = new Position(title, employee);
+        		position = Optional.of(job);
+        		
+        		position.get().addDirectReport(job);
+            }
+        }
+		
+		return position;
 	}
 
 	@Override
